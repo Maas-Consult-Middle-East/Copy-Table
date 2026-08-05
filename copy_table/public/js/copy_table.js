@@ -1,5 +1,25 @@
+let copy_table_enabled = false;
 
-frappe.router.on('change', () => {
+async function load_copy_table_settings() {
+    try {
+        copy_table_enabled = await frappe.db.get_single_value(
+            "Copy Table Settings",
+            "enable_copy_table"
+        );
+    } catch (e) {
+        console.error("Unable to load Copy Table Settings", e);
+        copy_table_enabled = false;
+    }
+}
+
+
+frappe.router.on("change", async () => {
+    await load_copy_table_settings();
+
+    if (!copy_table_enabled) {
+        return;
+    }
+
     setTimeout(add_buttons, 300);
 });
 
