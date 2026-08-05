@@ -6,3 +6,8 @@
 
 // 	},
 // });
+frappe.ui.form.on("Copy Table Settings", {
+    after_save:function(frm) {
+        window.location.reload();
+    }
+});
