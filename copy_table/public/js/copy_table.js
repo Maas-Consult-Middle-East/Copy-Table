@@ -17,6 +17,7 @@ frappe.router.on("change", async () => {
     await load_copy_table_settings();
 
     if (!copy_table_enabled) {
+        $(".copy-table-btn").remove();
         return;
     }
 
