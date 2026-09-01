@@ -130,28 +130,14 @@ Examples:
 
 ## Example
 
-### ERPNext
 
-| Item | Qty | Rate | Amount |
-|------|----:|-----:|-------:|
-| Laptop | 2 | 1500 | 3000 |
-| Mouse | 1 | 50 | 50 |
 
-↓
 
-### Microsoft Excel
-
-| Item | Qty | Rate | Amount |
-|------|----:|-----:|-------:|
-| Laptop | 2 | 1500 | 3000 |
-| Mouse | 1 | 50 | 50 |
-
-The table structure and formatting are preserved.
 
 ---
 
 ## What Gets Copied
-
+The table structure and formatting are preserved.
 The app copies:
 
 - Visible columns only
@@ -202,7 +188,6 @@ Users must have permission to:
 Verify that:
 
 - The app is installed.
-- Assets have been rebuilt.
 - Enable Copy Table is checked.
 - Browser cache has been refreshed after deployment.
 
@@ -234,13 +219,6 @@ Tested on:
 
 v1.0.0
 
-### Initial Release
-
-- Global Copy Table button
-- HTML table copying
-- Plain text clipboard fallback
-- Global enable/disable setting
-- Support for Frappe Framework v14, v15, and v16
 
 
 ### SCREENSHOTS
