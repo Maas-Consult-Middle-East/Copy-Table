@@ -41,3 +41,214 @@ This app can use GitHub Actions for CI. The following workflows are configured:
 mit
 # Copy-Table
 # Copy-Table
+
+
+# Copy Table
+
+The Copy Table app allows users to copy data from any child table in ERPNext/Frappe and paste it directly into spreadsheet or document applications while preserving the table structure.
+
+
+## Features
+
+- Adds a Copy Table button to all child tables.
+- Copies only the visible columns.
+- Preserves column headers.
+- Preserves formatted values.
+- Supports HTML and plain text clipboard formats.
+- Can be enabled or disabled globally.
+
+---
+
+## Supported Applications
+
+The copied table can be pasted into:
+
+- Microsoft Excel
+- Google Sheets
+- Microsoft Word
+- Google Docs
+- Outlook
+- Gmail
+- LibreOffice Calc
+- Apple Numbers
+- Any application supporting HTML table pasting
+
+
+## Installation
+
+Install the app.
+
+```bash
+bench get-app https://github.com/Maas-Consult-Middle-East/Copy-Table.git
+bench --site <site_name> install-app copy_table
+```
+
+Build the assets.
+
+```bash
+bench build
+bench migrate
+bench restart
+```
+
+---
+
+## Configuration
+
+Navigate to:
+
+> Copy Table Settings
+
+Enable the checkbox:
+
+> Enable Copy Table
+
+When enabled, the Copy Table button will appear in all child tables.
+
+When disabled, the button will be hidden globally.
+
+---
+
+## Usage
+
+1. Open any document containing a child table.
+
+Examples:
+
+- Sales Invoice
+- Purchase Invoice
+- Delivery Note
+- Material Request
+- Purchase Order
+- Payment Entry
+- Journal Entry
+- Any custom DocType with a child table
+
+2. Click Copy Table.
+
+3. Paste into your preferred application using:
+
+- Ctrl + V (Windows/Linux)
+- ⌘ + V (macOS)
+
+
+## Example
+
+### ERPNext
+
+| Item | Qty | Rate | Amount |
+|------|----:|-----:|-------:|
+| Laptop | 2 | 1500 | 3000 |
+| Mouse | 1 | 50 | 50 |
+
+↓
+
+### Microsoft Excel
+
+| Item | Qty | Rate | Amount |
+|------|----:|-----:|-------:|
+| Laptop | 2 | 1500 | 3000 |
+| Mouse | 1 | 50 | 50 |
+
+The table structure and formatting are preserved.
+
+---
+
+## What Gets Copied
+
+The app copies:
+
+- Visible columns only
+- Column headers
+- Displayed values
+- Currency formatting
+- Date formatting
+- Link field values
+- Select values
+- Read-only fields
+- Checkbox values as Yes or No
+
+---
+
+## Compatibility
+
+Supports:
+
+- Frappe Framework v14
+- Frappe Framework v15
+- Frappe Framework v16
+
+---
+
+## Permissions
+
+Users must have permission to:
+
+- Read the document being copied.
+- Read Copy Table Settings.
+
+---
+
+## Limitations
+
+- Only visible columns are copied.
+- Hidden columns are excluded.
+- Copies one child table at a time.
+- Clipboard access depends on browser permissions.
+- HTTPS is recommended for full Clipboard API support.
+
+---
+
+## Troubleshooting
+
+### Copy Table button is not visible
+
+Verify that:
+
+- The app is installed.
+- Assets have been rebuilt.
+- Enable Copy Table is checked.
+- Browser cache has been refreshed after deployment.
+
+---
+
+### Unable to copy the table
+
+Possible causes:
+
+- Clipboard permissions are denied.
+- Browser does not support the Clipboard API.
+- The page is not served over HTTPS.
+
+---
+
+## Browser Support
+
+Tested on:
+
+- Google Chrome
+- Microsoft Edge
+- Brave
+- Safari
+- Mozilla Firefox
+
+---
+
+## Version
+
+v1.0.0
+
+### Initial Release
+
+- Global Copy Table button
+- HTML table copying
+- Plain text clipboard fallback
+- Global enable/disable setting
+- Support for Frappe Framework v14, v15, and v16
+
+
+### SCREENSHOTS
+
+<img width="960" height="439" alt="Screen Recording 2026-09-01 082158f097f7" src="https://github.com/user-attachments/assets/5c0b73cb-9e21-4d44-9531-99c74cb51865" />
+
+<img width="1512" height="789" alt="Screenshot 2026-09-01 at 3 30 34 PM" src="https://github.com/user-attachments/assets/f3be2d14-529d-45a3-ad1d-92be97bdbf7d" />
