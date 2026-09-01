@@ -39,11 +39,7 @@ This app can use GitHub Actions for CI. The following workflows are configured:
 ### License
 
 mit
-# Copy-Table
-# Copy-Table
 
-
-# Copy Table
 
 The Copy Table app allows users to copy data from any child table in ERPNext/Frappe and paste it directly into spreadsheet or document applications while preserving the table structure.
 
