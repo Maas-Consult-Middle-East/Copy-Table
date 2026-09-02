@@ -1,10 +1,15 @@
 let copy_table_enabled = false;
 const COPY_TABLE_ROLE = "Copy Table";
+const COPY_TABLE_SETTINGS = "Copy Table Settings";
+
+function can_use_copy_table() {
+	return frappe.session.user === "Administrator" || frappe.user.has_role(COPY_TABLE_ROLE);
+}
 
 async function load_copy_table_settings() {
 	try {
 		copy_table_enabled = await frappe.db.get_single_value(
-			"Copy Table Settings",
+			COPY_TABLE_SETTINGS,
 			"enable_copy_table"
 		);
 	} catch (e) {
@@ -18,9 +23,10 @@ frappe.router.on("change", () => {
 });
 
 async function add_buttons() {
-	// The app JavaScript is loaded for every Desk user. Only role members can
-	// use the Copy Table feature.
-	if (!frappe.user.has_role(COPY_TABLE_ROLE)) {
+	// The app JavaScript is loaded for every Desk user. Do not call the
+	// settings endpoint unless this user is allowed to read it; otherwise the
+	// router would trigger repeated permission messages.
+	if (!can_use_copy_table() || !frappe.model.can_read(COPY_TABLE_SETTINGS)) {
 		$(".copy-table-btn").remove();
 		return;
 	}
