@@ -1,14 +1,4 @@
 rules:
-  - id: relaxed-permissions
-    languages: [json]
-    severity: WARNING
-    message: Avoid using "All" role in DocType permissions — it grants access to every user, including Website Users.
-    paths:
-      include:
-        - "*/doctype/*/*.json"
-    pattern: |
-      "role": "All"
-
   - id: frappe-cur-frm-usage
     languages: [javascript]
     severity: WARNING

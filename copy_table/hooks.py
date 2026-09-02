@@ -5,14 +5,6 @@ app_description = "Specific app for copying table and paste it in Docs,Excel,etc
 app_email = "salmanadayatt731@gmail.com"
 app_license = "mit"
 
-# Install the role required to use this app.
-fixtures = [
-	{
-		"doctype": "Role",
-		"filters": [["role_name", "=", "Copy Table"]],
-	},
-]
-
 # Apps
 # ------------------
 
